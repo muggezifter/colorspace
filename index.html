@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .block {
+            height: 400px;
+            width: 4000px;
+            background: linear-gradient(to right,
+            #F00,
+            #FF0,
+            #0F0,
+            #0FF,
+            #00F,
+            #F0F,
+            #f00); /* Standard syntax */
+        }
+
+        #square {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div id="square"></div>
+<script type="text/javascript">
+    Math.dsin = function () {
+        var piRatio = Math.PI / 180;
+        return function dsin(degrees) {
+            return Math.sin(degrees * piRatio);
+        };
+    }();
+
+
+   angle = 90;
+     s = document.getElementById("square");
+
+    function setColor(el, angle) {
+        var r = Math.round(255 * Math.dsin(angle));
+        var g = Math.round(255 * Math.dsin(angle + 120));
+        var b = Math.round(255 * Math.dsin(angle + 240));
+
+        if (r < 0) r = 0;
+        if (g < 0) g = 0;
+        if (b < 0) b = 0;
+        var color = "rgb(" + [r, g, b].join() + ")";
+        el.style.backgroundColor = color;
+        console.log(color);
+    }
+
+  //  setInterval(function(){setColor(s,++angle);},100);
+
+// https://github.com/muggezifter/colorspace.git
+
+
+</script>
+</body>
+</html>
