@@ -15,8 +15,8 @@ var value = 50;
 
 function onCompassSuccess(heading) {
     // display the bearing
-    var value = heading.magneticHeading.toFixed(2);
-    var color = hsvToRgb(heading, saturation, value);
+    var hue = heading.magneticHeading.toFixed(2);
+    var color = hsvToRgb(hue, saturation, value);
     var cssColor = "rgb(" + color.join() + ")";
     document.getElementById("innerLeft").style.backgroundColor = cssColor;
     document.getElementById("innerLeft").style.borderColor = cssColor;
