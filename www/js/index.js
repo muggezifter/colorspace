@@ -10,12 +10,18 @@ function initializeApp(){
     navigator.compass.watchHeading(onCompassSuccess, onCompassError);
 }
 
+var saturation = 50;
+var value = 50;
+
 function onCompassSuccess(heading) {
     // display the bearing
-    var heading = heading.magneticHeading.toFixed(0);
-    var color = hsvToRgb(heading);
+    var value = heading.magneticHeading.toFixed(2);
+    var color = hsvToRgb(heading, saturation, value);
     var cssColor = "rgb(" + color.join() + ")";
     document.getElementById("innerLeft").style.backgroundColor = cssColor;
+    document.getElementById("innerLeft").style.borderColor = cssColor;
+    document.getElementById("innerRight").style.backgroundColor = cssColor;
+    document.getElementById("innerRight").style.borderColor = cssColor;
 };
 
 
